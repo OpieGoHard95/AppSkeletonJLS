@@ -3,6 +3,7 @@
 //   2. You must comment out this line to compile with "javac"
 package edu.saintjoe.cs.brianc.appskeleton;
 
+// Forked for Jared Smith's purposes
 /* App Skeleton
  * Written by Brian Capouch 17 March 2015
  * This app will serve as the basis for student project apps
