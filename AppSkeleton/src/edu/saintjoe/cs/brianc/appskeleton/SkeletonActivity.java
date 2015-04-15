@@ -16,6 +16,7 @@ import com.google.devtools.simple.runtime.components.android.Button;
 import com.google.devtools.simple.runtime.components.android.Form;
 import com.google.devtools.simple.runtime.components.android.Label;
 import com.google.devtools.simple.runtime.components.android.HorizontalArrangement;
+import com.google.devtools.simple.runtime.components.android.TextBox;
 
 import com.google.devtools.simple.runtime.events.EventDispatcher;
 
@@ -34,9 +35,13 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
 	private HorizontalArrangement line2;
 
 	// Next our two components
-	private Button dumbButton;
-	private Label resultLabel;
+	private Button retrieveButton;
+	private Button saveButton;
+	private TextBox inputBox;
 
+	private int savedValue;
+	private Label resultLabel;
+	
  // Java Bridger apps all use $define() in place of main()
  void $define() {
  	
@@ -50,7 +55,10 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
      line2 = new HorizontalArrangement(this);
      
      // Now create the user interface
-     dumbButton = new Button(line1,"Empujeme");   
+     saveButton = new Button(line1, "Save");
+     retrieveButton = new Button(line1,"Retrieve");   
+     inputBox = new TextBox(line2);
+     inputBox.NumbersOnly(true);
      resultLabel = new Label(line2,"");
      
      
@@ -66,8 +74,9 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
          Object[] args) {
  	
  	// This code is equivalent to the "Blocks" part of App Inventor
-	    if (component.equals(dumbButton) && eventName.equals("Click")){
-	    	resultLabel.Text("Empujado!!");
+	    if (component.equals(retrieveButton) && eventName.equals("Click")){
+	    	savedValue = Integer.parseInt(inputBox.Text());
+	    	resultLabel.Text(inputBox.Text());
 	        return true;
 	     } // end dispatch '+' press
 	
