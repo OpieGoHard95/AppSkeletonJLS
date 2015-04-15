@@ -79,6 +79,7 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
 	    	savedValue = Integer.parseInt(inputBox.Text());
 	        // tempString = Integer.toString(savedValue);
 	        resultLabel.Text("Value has been saved");
+	        inputBox.Text("");
 	    	return true;
 	     } 
 	
