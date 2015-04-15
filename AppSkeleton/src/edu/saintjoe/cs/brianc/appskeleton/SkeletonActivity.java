@@ -40,6 +40,7 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
 	private TextBox inputBox;
 
 	private int savedValue;
+	private String tempString;
 	private Label resultLabel;
 	
  // Java Bridger apps all use $define() in place of main()
@@ -77,8 +78,10 @@ public class SkeletonActivity extends Form implements HandlesEventDispatching {
 	    if (component.equals(retrieveButton) && eventName.equals("Click")){
 	    	savedValue = Integer.parseInt(inputBox.Text());
 	    	resultLabel.Text(inputBox.Text());
-	        return true;
-	     } // end dispatch '+' press
+	        tempString = Integer.toString(savedValue);
+	        resultLabel.Text(tempString);
+	    	return true;
+	     } 
 	
 	// This line is syntactically required
     return true;
